@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+}
+
+.container {
+    margin: 30px auto
+}
+
+.navbar-nav .nav-link {
+    color: #000 !important;
+    padding: 0.5rem 0rem !important;
+    border-color: transparent;
+    margin-left: 1.5rem;
+    transition: none
+}
+
+.navbar .navbar-toggler:focus {
+    box-shadow: none
+}
+
+.navbar-nav .nav-link.active,
+.border-red {
+    border-bottom: 3px solid #b71c1c
+}
+
+.navbar-nav .nav-link:hover {
+    border-bottom: 3px solid #b71c1c
+}
+
+.container .product-item {
+    min-height: 450px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0
+}
+
+.container .product-item .product {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.container .product-item .product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.container .product-item .product .icons .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease;
+    transform: rotate(180deg);
+    cursor: pointer
+}
+
+.container .product-item .product .icons .icon:hover {
+    background-color: #b71c1c;
+    color: #fff
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(3) {
+    transition-delay: 0.2s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(2) {
+    transition-delay: 0.15s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(1) {
+    transition-delay: 0.1s
+}
+
+.container .product-item:hover .product .icons .icon {
+    transform: translateY(-60px)
+}
+
+.container .product-item .tag {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 0 0.4rem
+}
+
+.container .product-item .title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px
+}
+
+.container .product-item .fa-star {
+    font-size: 0.65rem;
+    color: goldenrod
+}
+
+.container .product-item .price {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600
+}
+
+.fw-800 {
+    font-weight: 800
+}
+
+.bg-green {
+    background-color: #208f20 !important;
+    color: #fff
+}
+
+.bg-black {
+    background-color: #1f1d1d;
+    color: #fff
+}
+
+.bg-red {
+    background-color: #bb3535;
+    color: #fff
+}
+
+@media (max-width: 767.5px) {
+
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+        background-color: #b71c1c;
+        color: #fff !important
+    }
+
+    .navbar-nav .nav-link {
+        border: 3px solid transparent;
+        margin: 0.8rem 0;
+        display: flex;
+        border-radius: 10px;
+        justify-content: center
+    }
+}@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+}
+
+
+.container {
+    margin: 30px auto
+}
+
+.navbar-nav .nav-link {
+    color: #000 !important;
+    padding: 0.5rem 0rem !important;
+    border-color: transparent;
+    margin-left: 1.5rem;
+    transition: none
+}
+
+.navbar .navbar-toggler:focus {
+    box-shadow: none
+}
+
+.navbar-nav .nav-link.active,
+.border-red {
+    border-bottom: 3px solid #b71c1c
+}
+
+.navbar-nav .nav-link:hover {
+    border-bottom: 3px solid #b71c1c
+}
+
+.container .product-item {
+    min-height: 450px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0
+}
+
+.container .product-item .product {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.container .product-item .product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.container .product-item .product .icons .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease;
+    transform: rotate(180deg);
+    cursor: pointer
+}
+
+.container .product-item .product .icons .icon:hover {
+    background-color: #b71c1c;
+    color: #fff
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(3) {
+    transition-delay: 0.2s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(2) {
+    transition-delay: 0.15s
+}
+
+.container .product-item .product .icons .icon:nth-last-of-type(1) {
+    transition-delay: 0.1s
+}
+
+.container .product-item:hover .product .icons .icon {
+    transform: translateY(-60px)
+}
+
+.container .product-item .tag {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 0 0.4rem
+}
+
+.container .product-item .title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px
+}
+
+.container .product-item .fa-star {
+    font-size: 0.65rem;
+    color: goldenrod
+}
+
+.container .product-item .price {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600
+}
+
+.fw-800 {
+    font-weight: 800
+}
+
+.bg-green {
+    background-color: #208f20 !important;
+    color: #fff
+}
+
+.bg-black {
+    background-color: #1f1d1d;
+    color: #fff
+}
+
+.bg-red {
+    background-color: #bb3535;
+    color: #fff
+}
+
+@media (max-width: 767.5px) {
+
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+        background-color: #b71c1c;
+        color: #fff !important
+    }
+
+    .navbar-nav .nav-link {
+        border: 3px solid transparent;
+        margin: 0.8rem 0;
+        display: flex;
+        border-radius: 10px;
+        justify-content: center
+    }
+}

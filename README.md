@@ -18,7 +18,7 @@ This application is built with Next.js and Tigris and provides a full-stack solu
 
 ## Project Demo
 <p align="center">
-<img src="./public/images/e-commerce-preview.gif" width="64%"/>
+<img src="./public/realtime-preview.gif" width="64%"/>
 </p>
 
 ## ⚙️ Deploying the app

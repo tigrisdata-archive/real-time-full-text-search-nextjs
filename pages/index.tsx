@@ -1,11 +1,44 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
+import { useEffect, useState } from 'react'
+import { Products } from '../db/models/store'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+    const [products, setProducts] = useState<Products[]>([])
+    const [searchInput, setSearchInput] = useState<string>()
+
+    const fetchProducts = () => {
+        fetch("/api/store")
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.result) {
+                    setProducts(data.result);
+                }
+            })
+            .catch((e) => {
+                console.log(`Error: ${e}`)
+            });
+    };
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+
+    const searchQuery = () => {
+        fetch(`/api/store/search?query=${encodeURI(searchInput)}`, {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.result) {
+                    setProducts(data.result);
+                }
+            });
+    };
     return (
         <>
             <Head>
@@ -23,7 +56,7 @@ export default function Home() {
                             <a className="navbar-brand">Shop <i className="fa fa-shopping-bag" aria-hidden="true"></i>
                             </a>
                             <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onKeyUp={searchQuery} onChange={(e) => setSearchInput(e.target.value)}/>
                             </form>
                         </div>
                     </nav>
@@ -36,110 +69,27 @@ export default function Home() {
                                 </div>
                             </nav>
                             <div className="row">
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='200' width="200" src="https://images.pexels.com/photos/54203/pexels-photo-54203.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-red">sale</div>
-                                    <div className="title pt-4 pb-1">Winter Sweater</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 60.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-black">out of stock</div>
-                                    <div className="title pt-4 pb-1">Denim Dresses</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 55.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-green">new</div>
-                                    <div className="title pt-4 pb-1"> Empire Waist Dresses</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 70.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="title pt-4 pb-1">Pinafore Dresses</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 60.0</div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://hellbunny.com/media/catalog/product/h/l/hlb40006-wonder-years-pinafore-dress-mustard-01_1_1.jpg?width=700&height=700&store=default&image-type=image" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-red">sale</div>
-                                    <div className="title pt-4 pb-1">Vintage Pinafore Dress</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 60.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://cdn-img.prettylittlething.com/2/0/b/f/20bf613769d11f84592c7f290f9c10aaca50d345_CLQ3250_1.JPG?imwidth=300" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-black">out of stock</div>
-                                    <div className="title pt-4 pb-1">Martin Black Dress</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 55.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="http://cdn.shopify.com/s/files/1/0313/1572/2378/products/linen-pinafore-dress-no-32-in-emmeline-check-pyne-and-smith-3.jpg?v=1651860592" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="title pt-4 pb-1"> Linen pinafore dress</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 70.0</div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://www.lulus.com/images/product/xlarge/9585181_1968196.jpg?w=375&hdpi=1" alt="" />
-                                        <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
-                                            <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
-                                            <li className="icon mx-3"><span className="far fa-heart"></span></li>
-                                            <li className="icon"><span className="fas fa-shopping-bag"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="tag bg-green">new</div>
-                                    <div className="title pt-4 pb-1">Pinafore Mini Dress</div>
-                                    <div className="d-flex align-content-center justify-content-center"> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> <span className="fas fa-star"></span> </div>
-                                    <div className="price">$ 60.0</div>
-                                </div>
+                                {products.length ?
+                                    products.map(product => {
+                                        const stars = Array.from({ length: product.star }, (_, i) => <span key={i} className="fas fa-star"></span>);
+                                        return (
+                                            <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3" key={product.id}>
+                                                <div className="product"> <Image height='320' width='320' src={product.image} alt="" />
+                                                    <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
+                                                        <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
+                                                        <li className="icon mx-3"><span className="far fa-heart"></span></li>
+                                                        <li className="icon"><span className="fas fa-shopping-bag"></span></li>
+                                                    </ul>
+                                                </div>
+                                                <div className={product.tag == "new" ? "tag bg-red" : "tag bg-black"}>{product.tag}</div>
+                                                <div className="title pt-4 pb-1">{product.name}</div>
+                                                <div className="d-flex align-content-center justify-content-center">{stars}</div>
+                                                <div className="price">$ {product.price}</div>
+                                            </div>
+                                        )
+                                    })
+
+                                    : <p className="mt-4" style={{ textAlign: "center" }}>No product available</p>}
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,8 @@
     "lint": "next lint",
     "predev": "npm run setup",
     "postbuild": "npm run setup",
-    "setup": "npx ts-node setup.ts"
+    "setup": "npx ts-node setup.ts",
+    "load-data": "npx ts-node loadData.ts"
   },
   "dependencies": {
     "@next/font": "13.1.1",

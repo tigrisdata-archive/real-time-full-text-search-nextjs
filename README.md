@@ -5,7 +5,7 @@
   <a href="https://www.typescriptlang.org/"><img alt="Typescript" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/></a>
   <a href="https://vercel.com/"><img alt="Vercel" src="https://img.shields.io/badge/vercel-F22F46?style=for-the-badge&logo=vercel&logoColor=white"/></a>
   <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="LICENSE" src="https://img.shields.io/github/license/tigrisdata/tigris-vercel-starter.svg?style=for-the-badge"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img alt="LICENSE" src="https://img.shields.io/badge/licence-MIT-orange?style=for-the-badge"></a></a>
 </p>
 
 <p align="center">  

@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">  
-Tigris offers an integrated full-text search solution that allows you to create powerful search experiences within your application. Utilizing Typesense technology, this embedded search engine eliminates the need for an additional search system, providing a smooth and scalable experience for your database.
+Tigris offers an integrated real-time full-text search solution that allows you to create powerful search experiences within your application. Utilizing Typesense technology, this embedded search engine eliminates the need for an additional search system, providing a smooth and scalable experience for your database.
 </br></br>
 
-# ⚡ ️Tigris example app on Next.js - Real-time Search
+# ⚡ ️Real-time full-text search with Next.js and Tigris
 
-This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. To improve accessibility, I integrated a real-time search feature, allowing users to quickly search for their desired products.
+This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. To improve accessibility, I used the Tigris embedded real-time full-text search feature to add search to the application, allowing users to search for their desired products quickly.
 
 ## Project Demo
 <p align="center">

@@ -14,7 +14,7 @@ Tigris offers an integrated real-time full-text search solution that allows you 
 
 # ⚡ ️Real-time full-text search with Next.js and Tigris
 
-This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. To improve accessibility, I used the Tigris embedded real-time full-text search feature to add search to the application, allowing users to search for their desired products quickly.
+This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. To improve the UX of the product discoverability, I used the Tigris embedded real-time full-text search feature to add search to the application, allowing users to search for their desired products quickly.
 
 ## Project Demo
 <p align="center">
@@ -30,7 +30,7 @@ To deploy this app to your [Vercel](https://vercel.com/signup) and [Netlify](htt
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tigrisdata-community/realtime-search)
 
 
-## 📖 Running Next.js server & Tigris locally
+## 📖 Running Next.js server & Tigris n Development
 
 ### Prerequisites
    1. Sign up on the [Tigris console](https://console.preview.tigrisdata.cloud/)

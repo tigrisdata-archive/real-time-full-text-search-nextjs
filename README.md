@@ -14,7 +14,7 @@ Tigris offers an integrated real-time full-text search solution that allows you 
 
 # ⚡ ️Real-time full-text search with Next.js and Tigris
 
-This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. To improve the UX of the product discoverability, I used the Tigris embedded real-time full-text search feature to add search to the application, allowing users to search for their desired products quickly.
+This application is built with Next.js and Tigris and provides a full-stack solution. Products are stored and retrieved from a Tigris database to be displayed to customers. Tigris embedded real-time full-text search feature is used to power search in the application and to provide a great UX for product discoverability.
 
 ## Project Demo
 <p align="center">

@@ -30,7 +30,7 @@ To deploy this app to your [Vercel](https://vercel.com/signup) and [Netlify](htt
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tigrisdata-community/realtime-search)
 
 
-## 📖 Running Next.js server & Tigris on Development
+## 📖 Development
 
 ### Prerequisites
    1. Sign up on the [Tigris console](https://console.preview.tigrisdata.cloud/)

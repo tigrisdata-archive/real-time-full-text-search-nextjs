@@ -1,28 +1,15 @@
+import { loadEnvConfig } from "@next/env";
+loadEnvConfig(process.cwd());
+
 import { Products } from "./db/models/store";
 import tigrisDB from "./lib/tigris";
-import fs from 'fs'
+import productsJson from "./db/products.json"
 
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  star: number;
-  tag: string;
-  image: string;
-};
-
-//load the products data from the products.json file.
-const rawdata = fs.readFileSync('./products.json',  'utf8');
-//parse the data returned to JSON.
-const data: Product[] = JSON.parse(rawdata);
-
-async function loadData(data: Product[]) {
-  try {
-    const productsCollection = tigrisDB.getCollection<Products>(Products);
-    const inserted = await productsCollection.insertMany(data);
-    console.log(inserted);
-  } catch (err) {
-    console.log({ error: err.message });
-  }
+async function loadData() {
+  const products: Array<Products> = productsJson as Array<Products>;
+  const productsCollection = tigrisDB.getCollection<Products>(Products);
+  const inserted = await productsCollection.insertMany(products);
+  console.log(inserted);
 }
-loadData(data);
+
+loadData();

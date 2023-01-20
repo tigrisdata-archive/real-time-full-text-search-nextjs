@@ -35,7 +35,7 @@ export default function Home() {
                             </nav>
                             <div className="row">
                                 <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='200' width="200" src="https://images.pexels.com/photos/54203/pexels-photo-54203.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                                    <div className="product"> <Image height='200' width="200" src="https://images.pexels.com/photos/54203/pexels-photo-54203.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" priority/>
                                         <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
                                             <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
                                             <li className="icon mx-3"><span className="far fa-heart"></span></li>
@@ -48,7 +48,7 @@ export default function Home() {
                                     <div className="price">$ 60.0</div>
                                 </div>
                                 <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-                                    <div className="product"> <Image height='320' width='320' src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                                    <div className="product"> <Image height='320' width='320' src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" priority />
                                         <ul className="d-flex align-items-center justify-content-center list-unstyled icons">
                                             <li className="icon"><span className="fas fa-expand-arrows-alt"></span></li>
                                             <li className="icon mx-3"><span className="far fa-heart"></span></li>

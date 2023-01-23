@@ -104,7 +104,6 @@ export default function Home() {
                       (_, i) => <span key={i} className="fas fa-star"></span>
                     );
                     return (
-                      // eslint-disable-next-line react/jsx-key
                       <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3" key={product.name}>
                         <div className="product">
                           {" "}

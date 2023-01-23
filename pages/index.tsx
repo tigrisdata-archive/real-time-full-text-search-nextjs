@@ -1,43 +1,37 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-
 import products from "../db/products.json";
 import { useEffect, useState } from "react";
 import { Product } from "../db/models/store";
-
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchInput, setSearchInput] = useState<string>();
 
-  const fetchProducts = () => {
-    fetch("/api/store")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result) {
-          setProducts(data.result);
-        }
-      })
-      .catch((e) => {
-        console.log(`Error: ${e}`);
-      });
+    const fetchProducts = async () => {
+    try {
+      const response = await fetch("/api/store");
+      const { result } = await response.json();
+      if (result) {
+        setProducts(result);
+      }
+    } catch (e) {
+      console.log(`Error: ${e}`);
+    }
   };
 
-  const searchQuery = () => {
-    fetch(`/api/store/search?query=${encodeURI(searchInput)}`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result) {
-          setProducts(data.result);
-        }
-      });
+   const searchQuery = async () => {
+    try {
+      const response = await fetch(`/api/store/search?query=${encodeURI(searchInput)}`);
+      const { result } = await response.json();
+      if (result) {
+        setProducts(result);
+      }
+    } catch (e) {
+      console.log(`Error: ${e}`);
+    }
   };
+  
   useEffect(() => {
     fetchProducts();
   }, []);

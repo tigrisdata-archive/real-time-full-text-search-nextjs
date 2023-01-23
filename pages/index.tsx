@@ -81,7 +81,7 @@ export default function Home() {
                     );
                     return (
                       // eslint-disable-next-line react/jsx-key
-                      <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                      <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3" id={product.name}>
                         <div className="product">
                           {" "}
                           <Image

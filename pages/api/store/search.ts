@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Product } from "../../../db/models/store";
+import { Product } from "../../../db/models/products";
 import { tigrisDB } from "../../../lib/tigris";
 import { SearchQuery } from "@tigrisdata/core";
 
@@ -15,7 +15,15 @@ export default async function handler(
   const { query, page } = req.query;
   try {
     const productCollection = tigrisDB.getCollection<Product>(Product);
-    const searchRequest: SearchQuery<Product> = { q: query as string };
+    const searchRequest: SearchQuery<Product> = {
+      q: query as string,
+      sort: [
+        {
+          field: "star",
+          order: "$desc",
+        },
+      ],
+    };
     const results = await productCollection.search(
       searchRequest,
       Number(page) || 1

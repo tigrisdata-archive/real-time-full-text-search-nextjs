@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import products from "../db/products.json";
 import { useEffect, useState } from "react";
-import { Product } from "../db/models/store";
+import { Product } from "../db/models/products";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchInput, setSearchInput] = useState<string>();
 
-    const fetchProducts = async () => {
+  const fetchProducts = async () => {
     try {
       const response = await fetch("/api/store");
       const { result } = await response.json();
@@ -20,9 +20,11 @@ export default function Home() {
     }
   };
 
-   const searchQuery = async () => {
+  const searchQuery = async () => {
     try {
-      const response = await fetch(`/api/store/search?query=${encodeURI(searchInput)}`);
+      const response = await fetch(
+        `/api/store/search?query=${encodeURI(searchInput)}`
+      );
       const { result } = await response.json();
       if (result) {
         setProducts(result);
@@ -31,7 +33,7 @@ export default function Home() {
       console.log(`Error: ${e}`);
     }
   };
-  
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -98,7 +100,10 @@ export default function Home() {
                       (_, i) => <span key={i} className="fas fa-star"></span>
                     );
                     return (
-                      <div className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3" key={product.name}>
+                      <div
+                        className="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3"
+                        key={product.name}
+                      >
                         <div className="product">
                           {" "}
                           <Image

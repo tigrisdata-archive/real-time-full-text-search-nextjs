@@ -1,7 +1,7 @@
 import { loadEnvConfig } from "@next/env";
 loadEnvConfig(process.cwd());
 
-import { Product } from "../db/models/store";
+import { Product } from "../db/models/products";
 import { tigrisDB } from "../lib/tigris";
 import productsJson from "../db/products.json";
 

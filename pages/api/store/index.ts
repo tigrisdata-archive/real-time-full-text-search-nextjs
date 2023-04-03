@@ -1,11 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Product } from "../../../db/models/store";
+import { Product } from "../../../db/models/products";
 import { tigrisDB } from "../../../lib/tigris";
 
 type FetchAllResponse = {
   result?: Array<Product>;
   error?: string;
-}
+};
 
 async function fetchAll(res: NextApiResponse<FetchAllResponse>) {
   try {
@@ -19,15 +19,15 @@ async function fetchAll(res: NextApiResponse<FetchAllResponse>) {
 }
 
 export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<FetchAllResponse>
-  ) {
-    switch (req.method) {
-      case "GET":
-        await fetchAll(res);
-        break;
-      default:
-        res.setHeader("Allow", ["GET"]);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
-    }
+  req: NextApiRequest,
+  res: NextApiResponse<FetchAllResponse>
+) {
+  switch (req.method) {
+    case "GET":
+      await fetchAll(res);
+      break;
+    default:
+      res.setHeader("Allow", ["GET"]);
+      res.status(405).end(`Method ${req.method} Not Allowed`);
   }
+}
